@@ -13,11 +13,11 @@
   <link rel="stylesheet" href="css/speech-input.css">
 </head>
 <body>
-  <nav class="white" role="navigation">
+  <nav role="navigation" style="background: #1E1A70">
     <div class="nav-wrapper container">
-      <a id="logo-container" href="#" class="brand-logo">Spemco Upload new CSV</a>
+      <a id="logo-container" href="#" class="brand-logo" style="color: white;">Spemco Upload new CSV</a>
       <ul class="right hide-on-med-and-down">
-        <li><a id="napsMainListen" href="index.html">Home</a></li>
+        <li><a id="napsMainListen" href="index.html" style="color: white;">Home</a></li>
       </ul>
 
       <ul id="nav-mobile" class="side-nav">
@@ -45,7 +45,7 @@
         </div>
           <form id        =  "uploadForm"
                enctype   =  "multipart/form-data"
-               action    =  "https://spemcostockcheck.herokuapp.com/upload"
+               action    =  "http://localhost:5000/upload"
                method    =  "post"
           >
           <input type="file" name="userPhoto" />
@@ -57,6 +57,7 @@
     </div>
   </div>
 
+  <script src="js/jquery-2.1.1.min.js"></script>
 
 <script type="text/javascript">
           function toggle_visibility(id, view) {
@@ -69,13 +70,16 @@
           function getURLParameter(name) {
             return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null
           }
-          if(getURLParameter('uploaded') == 'true'){
-            toggle_visibility('uploadingInfoYes', 'show');
-            toggle_visibility('uploadingInfoNo', 'hide');
-          }else if(getURLParameter('uploaded') == 'false'){
+          if(getURLParameter('uploaded') == 'false'){
             toggle_visibility('uploadingInfoNo', 'show');
             toggle_visibility('uploadingInfoYes', 'hide');
-          } else{
+          } else if(getURLParameter('uploaded') != null){
+            $("#uploadingInfoYes").empty();
+            $("#uploadingInfoYes").append("<h4>Success, " + getURLParameter('uploaded') + " records entered</h4>");
+            toggle_visibility('uploadingInfoYes', 'show');
+            toggle_visibility('uploadingInfoNo', 'hide');
+
+          }else{
             toggle_visibility('uploadingInfoNo', 'hide');
             toggle_visibility('uploadingInfoYes', 'hide');
           }
@@ -85,7 +89,6 @@
 
 
   <!--  Scripts-->
-  <script src="js/jquery-2.1.1.min.js"></script>
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
   </body>

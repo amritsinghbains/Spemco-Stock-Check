@@ -13,15 +13,18 @@
   <link rel="stylesheet" href="css/speech-input.css">
 </head>
 <body>
-  <nav class="white" role="navigation">
+  <nav role="navigation" style="background: #1E1A70">
     <div class="nav-wrapper container">
-      <a id="logo-container" href="#" class="brand-logo">Spemco Stock Check</a>
+      <a id="logo-container" href="#" class="brand-logo" style="color: white;">Spemco Stock Check</a>
       <ul class="right hide-on-med-and-down">
-        <li><a id="napsMainListen" href="upload.html">Upload new CSV</a></li>
+        <li>
+          <img src="logo.png" height="100%" width="100%" />
+        </li>
+        <!-- <li><a id="napsMainListen" href="upload.html">Upload new CSV</a></li> -->
       </ul>
 
       <ul id="nav-mobile" class="side-nav">
-        <li><a href="upload.html">Upload new CSV</a></li>
+        <!-- <li><a href="upload.html">Upload new CSV</a></li> -->
       </ul>
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
@@ -56,7 +59,7 @@ function myFunction() {
         $("#metaInfo").append(result.length + " results");
         $("#listOfPeople").empty();
         for(var i=0; i<result.length; i++){
-          $("#listOfPeople").append('<li class="collection-item avatar"> <i class="circle green">' +
+          $("#listOfPeople").append('<li class="collection-item avatar"> <i class="circle" style="background: #1E1A70;">' +
             result[i].On_Hand
             +'</i><span class="title"><b>' + 
               result[i].Manufacturer + '</b></span><p style="text-align:left;">' + result[i].Product_Code + ' </p></li>');
@@ -75,9 +78,9 @@ function myFunction() {
 
 
 
-        <div class="si-wrapper" style="width:100%">
-          <input id="first_name2" type="text" class="validate si-input"  onkeyup="myFunction()">
-          </div>
+        <!-- <div class="si-wrapper" style="width:100%"> -->
+          <input id="first_name2" type="text" class="validate si-input" style:"border-bottom: 1px solid #1E1A70" onkeyup="myFunction()">
+          <!-- </div> -->
 <br/><br/>
 
 
@@ -94,7 +97,7 @@ function myFunction() {
 
       <center>
       <div class="preloader-wrapper big active s12" id="loadingMask" style="display: none;" >
-          <div class="spinner-layer spinner-green-only">
+          <div class="spinner-layer spinner-blue-only">
             <div class="circle-clipper left">
               <div class="circle"></div>
             </div><div class="gap-patch">
@@ -107,7 +110,7 @@ function myFunction() {
         </center>
       <ul class="collection" id="listOfPeople">
         <li class="collection-item avatar">
-        <i class="circle green">1</i>
+        <i class="circle" style="background: #1E1A70;">1111</i>
           <span class="title">Title</span> 
           <p style="text-align:left;">
             Body

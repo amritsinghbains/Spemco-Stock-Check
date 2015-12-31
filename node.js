@@ -82,7 +82,8 @@ app.post('/upload',function(req,res){
         if(err) {
           console.log(err)
             // return res.end("Error uploading file.");
-            res.redirect('http://localhost/SpemcoStockCheck/FrontEnd/upload.html?uploaded=false');
+            // res.redirect('http://localhost/SpemcoStockCheck/FrontEnd/upload.html?uploaded=false');
+            res.redirect('http://spemcostockcheck.azurewebsites.net/upload.html?uploaded=false');
         }
         console.log('success...')
         records = [];
@@ -98,11 +99,13 @@ app.post('/upload',function(req,res){
             // console.log(records.length);
             callback();
           });
+          // res.redirect('http://localhost/SpemcoStockCheck/FrontEnd/upload.html?uploaded='+(data.length-1));
+          res.redirect('http://spemcostockcheck.azurewebsites.net/upload.html?uploaded='+(data.length-1));
+          
         }
         );
         fs.createReadStream(inputFile).pipe(parser);
 
-        res.redirect('http://spemcostockcheck.azurewebsites.net/upload.html?uploaded=true');
         // res.end("File is uploaded");
 
     });
