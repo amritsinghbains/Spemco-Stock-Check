@@ -102,8 +102,9 @@ app.post('/upload',function(req,res){
         );
         fs.createReadStream(inputFile).pipe(parser);
 
-        res.redirect('http://localhost/SpemcoStockCheck/FrontEnd/upload.html?uploaded=true');
+        res.redirect('http://spemcostockcheck.azurewebsites.net/upload.html?uploaded=true');
         // res.end("File is uploaded");
+
     });
 });
 

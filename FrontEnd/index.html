@@ -49,7 +49,7 @@ function myFunction() {
       return 1;
     }
     toggle_visibility('loadingMask', 'show');
-    $.ajax({url: "http://localhost:5000?q=" + x.value.trim(), success: function(result){
+    $.ajax({url: "https://spemcostockcheck.herokuapp.com/?q=" + x.value.trim(), success: function(result){
         console.log(result);
         toggle_visibility('loadingMask', 'hide');
         $("#metaInfo").empty();
