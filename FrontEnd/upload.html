@@ -44,9 +44,9 @@
           </h4>  
         </div>
           <form id        =  "uploadForm"
-               enctype   =  "multipart/form-data"
-               action    =  "http://localhost:5000/upload"
-               method    =  "post"
+            enctype   =  "multipart/form-data"
+            action    =  "https://spemcostockcheck.herokuapp.com/upload"
+            method    =  "post"
           >
           <input type="file" name="userPhoto" />
           <input type="submit" value="Upload" name="submit">
@@ -61,6 +61,7 @@
 
 <script type="text/javascript">
           function toggle_visibility(id, view) {
+//action    =  "http://localhost:5000/upload"
              var e = document.getElementById(id);
              if(view == 'hide')
                 e.style.display = 'none';
