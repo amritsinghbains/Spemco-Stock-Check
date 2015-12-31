@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <title>Spemco Stock Check</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link rel="stylesheet" href="css/speech-input.css">
+</head>
+<body>
+  <nav class="white" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="#" class="brand-logo">Spemco Stock Check</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a id="napsMainListen" href="upload.html">Upload new CSV</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="side-nav">
+        <li><a href="upload.html">Upload new CSV</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+  <script>
+
+function toggle_visibility(id, view) {
+       var e = document.getElementById(id);
+       if(view == 'hide')
+          e.style.display = 'none';
+       else
+          e.style.display = 'block';
+   }
+
+function show_more_menu(value) {
+  var x = document.getElementById("first_name2");
+  x.value = value;
+  myFunction();
+}
+function myFunction() {
+    var x = document.getElementById("first_name2");
+    $("#listOfPeople").empty();
+    $("#metaInfo").empty();
+    if(x.value.length < 1){
+      return 1;
+    }
+    toggle_visibility('loadingMask', 'show');
+    $.ajax({url: "http://localhost:5000?q=" + x.value.trim(), success: function(result){
+        console.log(result);
+        toggle_visibility('loadingMask', 'hide');
+        $("#metaInfo").empty();
+        $("#metaInfo").append(result.length + " results");
+        $("#listOfPeople").empty();
+        for(var i=0; i<result.length; i++){
+          $("#listOfPeople").append('<li class="collection-item avatar"> <i class="circle green">' +
+            result[i].On_Hand
+            +'</i><span class="title"><b>' + 
+              result[i].Manufacturer + '</b></span><p style="text-align:left;">' + result[i].Product_Code + ' </p></li>');
+          }
+    }});
+}
+
+</script>
+
+  <div class="container">
+    <div class="section">
+
+     <div class="row">
+        <div class="input-field col s12">
+
+
+
+
+        <div class="si-wrapper" style="width:100%">
+          <input id="first_name2" type="text" class="validate si-input"  onkeyup="myFunction()">
+          </div>
+<br/><br/>
+
+
+
+          <label class="active" for="first_name2">Search...</label>
+
+
+          <div class="chip" id="metaInfo" style="float: right;">
+            Results
+          </div>
+
+        </div>
+      </div>
+
+      <center>
+      <div class="preloader-wrapper big active s12" id="loadingMask" style="display: none;" >
+          <div class="spinner-layer spinner-green-only">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div><div class="gap-patch">
+              <div class="circle"></div>
+            </div><div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+        </div>
+        </center>
+      <ul class="collection" id="listOfPeople">
+        <li class="collection-item avatar">
+        <i class="circle green">1</i>
+          <span class="title">Title</span> 
+          <p style="text-align:left;">
+            Body
+          </p>
+        </li>
+      </ul>
+
+      
+
+    </div>
+  </div>
+
+
+ 
+
+
+  <!--  Scripts-->
+  <script src="js/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+  </body>
+</html>
