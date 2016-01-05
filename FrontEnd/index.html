@@ -11,14 +11,16 @@
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link rel="stylesheet" href="css/speech-input.css">
+  <link rel="shortcut icon" href="http://cdn6.bigcommerce.com/s-en3mh89/product_images/favicon%20%281%29.ico?t=1446055055" />
 </head>
 <body>
   <nav role="navigation" style="background: #1E1A70">
     <div class="nav-wrapper container">
-      <a id="logo-container" href="#" class="brand-logo" style="color: white;">Spemco Stock Check</a>
+    <img src="logo.png" height="77px" width="250px" />
       <ul class="right hide-on-med-and-down">
         <li>
-          <img src="logo.png" height="100%" width="100%" />
+          <h4 id="logo-container" style="color: white;"> Stock Check</h4>      
+          <!-- <img src="logo.png" height="65%" width="65%" /> -->
         </li>
         <!-- <li><a id="napsMainListen" href="upload.html">Upload new CSV</a></li> -->
       </ul>
@@ -26,7 +28,7 @@
       <ul id="nav-mobile" class="side-nav">
         <!-- <li><a href="upload.html">Upload new CSV</a></li> -->
       </ul>
-      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+      <!-- <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a> -->
     </div>
   </nav>
   <script>
@@ -71,8 +73,9 @@ function myFunction() {
 
   <div class="container">
     <div class="section">
-
+Please enter the SKU # for the item you are wanting to see quantity-on-hand. The site will display all items that contain your search value.
      <div class="row">
+
         <div class="input-field col s12">
 
 
@@ -84,11 +87,11 @@ function myFunction() {
 <br/><br/>
 
 
-
+          
           <label class="active" for="first_name2">Search...</label>
 
 
-          <div class="chip" id="metaInfo" style="float: right;">
+          <div class="chip" id="metaInfo" style="float: right;    margin-right: 10px;">
             Results
           </div>
 
@@ -108,12 +111,23 @@ function myFunction() {
           </div>
         </div>
         </center>
+<b>
+<table border="1" style="width:100%;border: 1px solid #e0e0e0;    margin-top: -70px;">
+  <tr>
+    <td style="width:70px;border: 1px solid #e0e0e0;">
+      <center>Qty On Hand
+      </center>
+    </td>
+    <td style="border: 1px solid #e0e0e0;"><div style="margin-left:5px">Item</div></td>    
+  </tr>
+</table>
+</b>
       <ul class="collection" id="listOfPeople">
         <li class="collection-item avatar">
-        <i class="circle" style="background: #1E1A70;">1111</i>
-          <span class="title">Title</span> 
+        <i class="circle" style="background: #1E1A70;">1</i>
+          <span class="title">Name</span> 
           <p style="text-align:left;">
-            Body
+            SKU
           </p>
         </li>
       </ul>
