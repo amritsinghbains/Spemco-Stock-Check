@@ -51,6 +51,13 @@ var parser = parse({delimiter: ','}, function (err, data) {
 );
 fs.createReadStream(inputFile).pipe(parser);
 
+function Comparator(a,b){
+  // console.log(a)
+  if (a.Product_Code < b.Product_Code) return -1;
+  if (a.Product_Code > b.Product_Code) return 1;
+  return 0;
+}
+
 function search(nameKey, myArray){
 	var myNewArray = [];
     for (var i=1; i < myArray.length; i++) {
@@ -61,6 +68,7 @@ function search(nameKey, myArray){
               myNewArray.push(myArray[i]);
         }
     }
+    myNewArray = myNewArray.sort(Comparator);
     return myNewArray;
 }
 
